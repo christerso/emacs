@@ -1,3 +1,7 @@
+;;========================================================================================
+;; Christer Söderlunds emacs config
+;;========================================================================================
+
 (require 'package)
 (add-to-list 'package-archives
 			              '("melpa" . "https://melpa.org/packages/") t)
@@ -5,6 +9,20 @@
     ;; For important compatibility libraries like cl-lib
 	  (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/")))
 (package-initialize)
+
+;;========================================================================================
+;; Add scripts beneath this separator
+;;========================================================================================
+
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+;; Stop the annoying autosave
+(setq backup-directory-alist
+          `((".*" . ,temporary-file-directory)))
+    (setq auto-save-file-name-transforms
+          `((".*" ,temporary-file-directory t)))
+(setq make-backup-files nil)
+
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
 
@@ -56,22 +74,10 @@
   (local-set-key [tab] 'irony--indent-or-complete))
 (add-hook 'c-mode-common-hook 'irony-mode-keys)
 
-;; Switch between header and implementation
-(add-hook 'c-mode-common-hook (lambda() (local-set-key (kbd "C-x c") 'ff-find-other-file)))
-
 ;; Switch to help window on open
 (setq help-window-select t)
 ;;===========================================
 (setq shell-file-name "bash")
-
-;; Allow to switch from current user to sudo when browsind `dired' buffers.
-(require 'dired-toggle-sudo)
-(define-key dired-mode-map (kbd "C-c C-s") 'dired-toggle-sudo)
-(eval-after-load 'tramp
- '(progn
-    ;; Allow to use: /sudo:user@host:/path/to/file
-    (add-to-list 'tramp-default-proxies-alist
-		  '(".*" "\\`.+\\'" "/ssh:%h:"))))
 
 ;; Switch between buffers by number
 (require 'frame-tag)
@@ -79,12 +85,6 @@
 
 ;; IComplete +
 (eval-after-load "icomplete" '(progn (require 'icomplete+)))
-
-;; Using CEDET Eassist to switch between header and implementation
-(defun my-c-mode-common-hook ()
-   (define-key c-mode-base-map (kbd "C-x c") 'eassist-switch-h-cpp)
-   (define-key c-mode-base-map (kbd "C-x m") 'eassist-list-methods))
-(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
 (require 'ido)
 (ido-mode t)
@@ -112,26 +112,54 @@
 ;; Remove toolbar and menu
 (menu-bar-mode 0)
 (tool-bar-mode -1)
+(scroll-bar-mode 0)
+;; After splitting a frame automatically, switch to the new window (unless we
+;;were in the minibuffer)
+(setq split-window-preferred-function 'my/split-window-func)
+(defun my/split-window-func (&optional window)
+  (let ((new-window (split-window-sensibly window)))
+    (if (not (active-minibuffer-window))
+        (select-window new-window))))
+(defun split-window--select-window (orig-func &rest args)
+  "Switch to the other window after a `split-window'"
+  (let ((cur-window (selected-window))
+        (new-window (apply orig-func args)))
+    (when (equal (window-buffer cur-window) (window-buffer new-window))
+      (select-window new-window))
+    new-window))
+(advice-add 'split-window :around #'split-window--select-window)
 
-;; after splitting a frame automatically, switch to the new window (unless we
-;; were in the minibuffer)
-;; (setq split-window-preferred-function 'my/split-window-func)
-;; (defun my/split-window-func (&optional window)
-;;   (let ((new-window (split-window-sensibly window)))
-;;     (if (not (active-minibuffer-window))
-;;         (select-window new-window))))
-;; (defun split-window--select-window (orig-func &rest args)
-;;   "Switch to the other window after a `split-window'"
-;;   (let ((cur-window (selected-window))
-;;         (new-window (apply orig-func args)))
-;;     (when (equal (window-buffer cur-window) (window-buffer new-window))
-;;       (select-window new-window))
-;;     new-window))
-;; (advice-add 'split-window :around #'split-window--select-window)
+
+;; Peristent scratch buffer
+(setq persistent-scratch-autosave-mode 1)
 
 ;; KEY SETTINGS =================================================================
 
+;; Unbinding any keys I do not want
+(global-unset-key (kbd "C-x f")) ; fill
+(global-unset-key (kbd "C-x c")) ; fill
+(global-unset-key (kbd "M-z")) ; zap key
+
+;; Move windows
+(global-set-key (kbd "<C-S-up>")     'buf-move-up)
+(global-set-key (kbd "<C-S-down>")   'buf-move-down)
+(global-set-key (kbd "<C-S-left>")   'buf-move-left)
+(global-set-key (kbd "<C-S-right>")  'buf-move-right)
+
+;; Jump between windows
+(global-set-key (kbd "C-c <left>")  'windmove-left)
+(global-set-key (kbd "C-c <right>") 'windmove-right)
+(global-set-key (kbd "C-c <up>")    'windmove-up)
+(global-set-key (kbd "C-c <down>")  'windmove-down)
+
+;; Binding keys
 (global-set-key (kbd "C-c c") 'comment-dwim)
+;; Using CEDET Eassist to switch between header and implementation
+(defun my-c-mode-common-hook ()
+   (define-key c-mode-base-map (kbd "C-x c") 'eassist-switch-h-cpp)
+   (define-key c-mode-base-map (kbd "C-x m") 'eassist-list-methods))
+(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+(add-hook 'c-mode-common-hook 'uncrustify-mode)
 
 ;;===============================================================================
 
@@ -173,6 +201,9 @@
  '(hl-paren-colors
    (quote
     ("#B9F" "#B8D" "#B7B" "#B69" "#B57" "#B45" "#B33" "#B11")))
+ '(initial-scratch-message ";; Peristent scratch buffer
+
+")
  '(linum-format (quote dynamic))
  '(main-line-color1 "#222232")
  '(main-line-color2 "#333343")
@@ -186,12 +217,16 @@
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (realgud zonokai-theme zenburn-theme org icomplete+ frame-tag flycheck-irony dired-toggle-sudo darktooth-theme darcula-theme danneskjold-theme dakrone-theme cpputils-cmake company-irony-c-headers company-irony color-theme-solarized color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized colonoscopy-theme cmake-project cmake-ide clues-theme cherry-blossom-theme calmer-forest-theme boron-theme badwolf-theme atom-dark-theme arjen-grey-theme ample-zen-theme ample-theme alect-themes airline-themes ahungry-theme afternoon-theme)))
+    (buffer-move uncrustify-mode persistent-scratch realgud zonokai-theme zenburn-theme org icomplete+ frame-tag flycheck-irony dired-toggle-sudo darktooth-theme darcula-theme danneskjold-theme dakrone-theme cpputils-cmake company-irony-c-headers company-irony color-theme-solarized color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized colonoscopy-theme cmake-project cmake-ide clues-theme cherry-blossom-theme calmer-forest-theme boron-theme badwolf-theme atom-dark-theme arjen-grey-theme ample-zen-theme ample-theme alect-themes airline-themes ahungry-theme afternoon-theme)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
+ '(persistent-scratch-autosave-mode t)
+ '(persistent-scratch-backup-directory "~/Dropbox/backup/emacs-scratch")
+ '(persistent-scratch-save-file "~/Dropbox/backup/emacs-scratch/persistent-scratch")
  '(pos-tip-background-color "#36473A")
  '(pos-tip-foreground-color "#FFFFC8")
  '(powerline-color1 "#222232")
  '(powerline-color2 "#333343")
+ '(uncrustify-config-path "~/uncrustify.cfg")
  '(vc-annotate-background "#3b3b3b")
  '(vc-annotate-color-map
    (quote
@@ -229,4 +264,9 @@
  '(company-tooltip-annotation ((t (:foreground "pale turquoise"))))
  '(company-tooltip-common ((t (:foreground "white"))))
  '(company-tooltip-mouse ((t (:background "black" :foreground "deep sky blue"))))
- '(company-tooltip-selection ((t (:background "black" :foreground "orange")))))
+ '(company-tooltip-selection ((t (:background "black" :foreground "orange"))))
+ '(isearch ((t (:background "black" :foreground "orange"))))
+ '(isearch-fail ((t (:background "orange" :foreground "black"))))
+ '(lazy-highlight ((t (:background "dark orange" :foreground "black"))))
+ '(region ((t (:background "light goldenrod" :foreground "dark blue" :inverse-video nil))))
+ '(tty-menu-selected-face ((t (:background "dark green")))))
