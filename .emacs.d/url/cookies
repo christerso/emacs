@@ -1,0 +1,19 @@
+;; Emacs-W3 HTTP cookies file
+;; Automatically generated file!!! DO NOT EDIT!!!
+
+(setq url-cookie-storage
+ '((".imdb.com"
+  [url-cookie "uu" "BCYqz4gvGgc2_413eTWPkZlvkVQg56LGGlytYeMeviSRX-Xw41vuZGQQP0IJe0LTj-6Z_MwOlM7B%0D%0AxW7VygePgMRK6RVoDR5SGwjjM19M9e-3qnncm_EYfqL_iDeCLr2gB8BOi9gxD53P65t8T2wKtVGC%0D%0AR5UlRJv-V-AS3R97okQuUA9o9J78qU3OG6hNX7nqaprDX9wi55npPJDbXPDaVAPAffQOQ8qARuAG%0D%0AtzWvWyXVJtkTALyJJ6epR4PPcYtrD1PYxhr9-kuWcyo25desnWGkMS6RAF1yOn20SnwqkUSArv0%0D%0A" "09-Mar-2085 21:12:26.00 GMT" "/" ".imdb.com" nil]
+  [url-cookie "session-id" "314-3747751-3132085" "09-Mar-2085 21:12:26.00 GMT" "/" ".imdb.com" nil]
+  [url-cookie "session-id-time" "1645207099" "09-Mar-2085 21:12:26.00 GMT" "/" ".imdb.com" nil])
+ (".google.de"
+  [url-cookie "NID" "97=NtuVcmpvRhaFQPfxTpV-SBiiI-hyI4F1aUH83W5lDxxpOHP-5Br9R8GAXObCEbfrpaYmKKjpVEr1q8rLj3yrO_bYUw8l3XrPmo7ki9GF7EtAjnDbov9nOc1EZTOwYIek" "21-Aug-2017 17:58:01.00 GMT" "/" ".google.de" nil]
+  [url-cookie "HttpOnly" nil "21-Aug-2017 17:58:01.00 GMT" "/" ".google.de" nil]))
+)
+(setq url-cookie-secure-storage
+ 'nil)
+
+;; Local Variables:
+;; version-control: never
+;; no-byte-compile: t
+;; End:

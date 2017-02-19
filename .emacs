@@ -96,7 +96,6 @@
   (find-file (ido-completing-read "Open file: " recentf-list nil t)))
 
 (global-set-key (kbd "C-c f") 'ido-choose-from-recentf)
-(global-set-key "\C-x\C-b" 'buffer-menu)
 
 (setq company-idle-delay 0)
 
@@ -133,24 +132,95 @@
 ;; Peristent scratch buffer
 (setq persistent-scratch-autosave-mode 1)
 
+;; Protocol buffers
+
+(defconst my-protobuf-style
+  '((c-basic-offset . 2)
+    (indent-tabs-mode . nil)))
+
+(add-hook 'protobuf-mode-hook
+	  (lambda () (c-add-style "my-style" my-protobuf-style t)))
+
+;; IRC
+(setq my-credentials-file "~/.private.el")
+
+(setq lui-track-bar-behavior 'before-switch-to-buffer)
+(enable-lui-track-bar)
+
+(defun my-nickserv-password (_)
+  (with-temp-buffer
+    (insert-file-contents-literally my-credentials-file)
+    (plist-get (read (buffer-string)) :nickserv-password)))
+
+(setq circe-network-options
+      '(("Freenode"
+         :nick "hardcampa"
+         :channels ("#ubuntu")
+         :nickserv-password my-nickserv-password)))
+
+(add-hook 'circe-chat-mode-hook 'my-circe-prompt)
+(defun my-circe-prompt ()
+  (lui-set-prompt
+   (concat (propertize (concat (buffer-name) ">")
+                       'face 'circe-prompt-face)
+           " ")))
+(setq circe-format-say "{nick:-16s} {body}")
+(enable-circe-color-nicks)
+(setq circe-use-cycle-completion t)
+(setq circe-reduce-lurker-spam t)
+
+(defun my-circe-message-option-chanserv (nick user host command args)
+  (when (and (string= "ChanServ" nick)
+             (string-match "^\\[#.+?\\]" (cadr args)))
+    '((dont-display . t))))
+(add-hook 'circe-message-option-functions 'my-circe-message-option-chanserv)
+
+(setq
+ lui-time-stamp-position 'right-margin
+ lui-time-stamp-format "%H:%M")
+
+(add-hook 'lui-mode-hook 'my-circe-set-margin)
+(defun my-circe-set-margin ()
+  (setq right-margin-width 5))
+
+(setq
+ lui-time-stamp-position 'right-margin
+ lui-fill-type nil)
+
+(add-hook 'lui-mode-hook 'my-lui-setup)
+(defun my-lui-setup ()
+  (setq
+   fringes-outside-margins t
+   right-margin-width 5
+   word-wrap t
+   wrap-prefix "    "))
+
+;; Helm
+
+(require 'helm-config)
+(helm-mode 1)
+
 ;; KEY SETTINGS =================================================================
 
 ;; Unbinding any keys I do not want
 (global-unset-key (kbd "C-x f")) ; fill
 (global-unset-key (kbd "C-x c")) ; fill
 (global-unset-key (kbd "M-z")) ; zap key
-
+;;(global-unset-key (kdb "\C-x\C-b")) ; buffer list
 ;; Move windows
 (global-set-key (kbd "<C-S-up>")     'buf-move-up)
 (global-set-key (kbd "<C-S-down>")   'buf-move-down)
 (global-set-key (kbd "<C-S-left>")   'buf-move-left)
 (global-set-key (kbd "<C-S-right>")  'buf-move-right)
-
 ;; Jump between windows
 (global-set-key (kbd "C-c <left>")  'windmove-left)
 (global-set-key (kbd "C-c <right>") 'windmove-right)
 (global-set-key (kbd "C-c <up>")    'windmove-up)
 (global-set-key (kbd "C-c <down>")  'windmove-down)
+
+;; Helm
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key "\C-x\C-b" 'helm-buffers-list)
 
 ;; Binding keys
 (global-set-key (kbd "C-c c") 'comment-dwim)
@@ -173,6 +243,11 @@
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
    ["#212121" "#CC5542" "#6aaf50" "#7d7c61" "#5180b3" "#DC8CC3" "#9b55c3" "#bdbdb3"])
+ '(circe-default-nick "hardcampa")
+ '(circe-default-part-message "...")
+ '(circe-default-quit-message "...")
+ '(circe-default-realname "hardcampa")
+ '(circe-default-user "hardcampa")
  '(custom-enabled-themes (quote (atom-dark)))
  '(custom-safe-themes
    (quote
@@ -217,7 +292,7 @@
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (egg buffer-move uncrustify-mode persistent-scratch realgud zonokai-theme zenburn-theme org icomplete+ frame-tag flycheck-irony dired-toggle-sudo darktooth-theme darcula-theme danneskjold-theme dakrone-theme cpputils-cmake company-irony-c-headers company-irony color-theme-solarized color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized colonoscopy-theme cmake-project cmake-ide clues-theme cherry-blossom-theme calmer-forest-theme boron-theme badwolf-theme atom-dark-theme arjen-grey-theme ample-zen-theme ample-theme alect-themes airline-themes ahungry-theme afternoon-theme)))
+    (protobuf-mode helm clean-buffers circe-notifications circe egg buffer-move uncrustify-mode persistent-scratch realgud zonokai-theme zenburn-theme org icomplete+ frame-tag flycheck-irony dired-toggle-sudo darktooth-theme darcula-theme danneskjold-theme dakrone-theme cpputils-cmake company-irony-c-headers company-irony color-theme-solarized color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized colonoscopy-theme cmake-project cmake-ide clues-theme cherry-blossom-theme calmer-forest-theme boron-theme badwolf-theme atom-dark-theme arjen-grey-theme ample-zen-theme ample-theme alect-themes airline-themes ahungry-theme afternoon-theme)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(persistent-scratch-autosave-mode t)
  '(persistent-scratch-backup-directory "~/Dropbox/backup/emacs-scratch")
@@ -254,6 +329,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(circe-prompt-face ((t (:foreground "yellow" :weight bold))))
  '(company-preview ((t (:background "darkgray" :foreground "black"))))
  '(company-preview-common ((t (:background "dark slate gray" :foreground "white smoke"))))
  '(company-preview-search ((t (:inherit company-preview :background "dark gray"))))
