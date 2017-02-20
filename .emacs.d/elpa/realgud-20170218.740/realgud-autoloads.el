@@ -1,9 +1,10 @@
 ;;; realgud-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
+(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "realgud" "realgud.el" (0 0 0 0))
+;;;### (autoloads nil "realgud" "realgud.el" (22698 56837 853369
+;;;;;;  501000))
 ;;; Generated autoloads from realgud.el
 
 (defconst realgud--recursive-autoloads-file-name "realgud-recursive-autoloads.el" "\
@@ -13,11 +14,10 @@ Where to store autoloads for subdirectory contents.")
 
 (with-demoted-errors "Error in RealGUD's autoloads: %s" (load (expand-file-name realgud--recursive-autoloads-file-name realgud--recursive-autoloads-base-directory) t t))
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "realgud" '("realgud--rebuild-recursive-autoloads")))
-
 ;;;***
 
-;;;### (autoloads nil nil ("realgud-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("realgud-pkg.el") (22698 56841 558204
+;;;;;;  801000))
 
 ;;;***
 

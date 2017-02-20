@@ -1,0 +1,30 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Mon Feb 20 14:38:03 2017
+;; Desktop file format version 206
+;; Emacs version 24.5.1
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (22698 61755 829917 507000) (desktop . "206") "christer@LabLinux" nil nil ((((font-backend xft x) (font . "-DAMA-Ubuntu Mono-normal-normal-normal-*-17-*-*-*-m-0-iso10646-1") (font-parameter . "Ubuntu Mono 13") (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (foreground-color . "#c5c8c6") (background-color . "#1d1f21") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 9) (right-fringe . 9) (scroll-bar-foreground . "#eeeeee") (scroll-bar-background . "#444444") (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (wait-for-wm . t) (fullscreen . maximized) (tool-bar-position . top) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (alpha) (horizontal-scroll-bars . t) (display-type . color) (background-mode . dark) (cursor-color . "white") (sticky) (environment) (frameset--id . "D506-CD82-1FAA-A29B") (frameset--mini t . t) (modeline . t) (minibuffer . t) (unsplittable) (icon-name) (display . ":0") (explicit-name) (visibility . t) (height . 75) (width . 282) (left . 0) (top . 24)) ((min-height . 4) (min-width . 20) (min-height-ignore . 2) (min-width-ignore . 8) (min-height-safe . 1) (min-width-safe . 4) (min-pixel-height . 72) (min-pixel-width . 180) (min-pixel-height-ignore . 36) (min-pixel-width-ignore . 72) (min-pixel-height-safe . 18) (min-pixel-width-safe . 36)) hc (pixel-width . 2560) (pixel-height . 1341) (total-width . 284) (total-height . 75) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 1278) (pixel-height . 1341) (total-width . 142) (total-height . 75) (normal-height . 1.0) (normal-width . 0.5) (buffer ".emacs" (selected . t) (hscroll . 0) (fringes 9 9 nil) (margins nil) (scroll-bars 0 0 nil nil) (vscroll . 0) (dedicated) (point . 1136) (start . 1))) (leaf (last . t) (pixel-width . 1282) (pixel-height . 1341) (total-width . 142) (total-height . 75) (normal-height . 1.0) (normal-width . 0.5) (buffer ".emacs" (selected) (hscroll . 0) (fringes 9 9 nil) (margins nil) (scroll-bars 0 0 nil nil) (vscroll . 0) (dedicated) (point . 1334) (start . 1)))))])
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring '("workgroup" "yes" "kill" "bookmarkqq" "bookmark" "bm" "helm-ag" "search"))
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '("~/.emacs" "~/.emacs_workgroups" "~/projects/neuronet/src/spdlog/fmt/bundled/format.h" "~/.emacs.d/elpa/helm-ag-20170209.745/helm-ag-autoloads.el" "~/projects/neuronet/src/spdlog/fmt/bundled/format.h" "~/.emacs.d/elpa/ag-20161228.1641/ag-autoloads.el" "~/projects/neuronet/src/neuron.cpp" "~/projects/neuronet/src/neuron.h" "~/.emacs" "~/projects/neuronet/src/network.cpp" "~/.emacs.d/elpa/workgroups2-20141102.1122/workgroups2-autoloads.el" "~/.emacs.d/elpa/workgroups-20110726.941/workgroups-autoloads.el" "~/projects/neuronet/src/neuron.cpp" "~/projects/neuronet/src/main.cpp" "~/Dropbox/emacs/.emacs" "~/Dropbox/emacs/elisp/workgroups/README.md" "~/Dropbox/emacs/elisp/workgroups/workgroups.el" "~/tmp/elisp/.emacs" "~/.emacs.d/elpa/session-20120510.1700/session-autoloads.el" "~/.emacs.d/.emacs_workgroups" "~/.emacs.d/elpa/anaphora-20140728.1536/anaphora-autoloads.el" "~/.emacs.d/elpa/f-20161002.800/f-autoloads.el" "~/.emacs.d/elpa/s-20160928.636/s-autoloads.el" "/usr/include/c++/6/bits/stl_vector.h" "/usr/include/c++/6/bits/vector.tcc" "~/projects/neuronet/src/network.h" "~/.emacs.d/bookmarks" "~/projects/neuronet/gtest/googlemock/test/gmock-actions_test.cc" "~/projects/goeuro/src/busroute.cpp" "~/.emacs.d/elpa/ggtags-20161022.251/ggtags-autoloads.el" "~/.emacs.d/elpa/yasnippet-20170216.1928/yasnippet-autoloads.el" "~/projects/neuronet/build/compile_commands.json" "~/projects/neuronet/build/CMakeCache.txt"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 206
+  "/home/christer/.emacs"
+  ".emacs"
+  'emacs-lisp-mode
+  '(company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode)
+  1136
+  '(1095 t)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix) (overwrite-mode)))
+

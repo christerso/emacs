@@ -1,7 +1,9 @@
+
 ;;========================================================================================
-;; Christer Söderlunds emacs config
+;; Christer Söderlunds Emacs config
 ;;========================================================================================
 
+;;; Code:
 (require 'package)
 (add-to-list 'package-archives
 			              '("melpa" . "https://melpa.org/packages/") t)
@@ -10,12 +12,29 @@
 	  (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/")))
 (package-initialize)
 
+;; This directory is also used for as few script as possible that is not in melpa or elpa
+(add-to-list 'load-path "~/.emacs.d/lisp")
+;; An exception
+(load-file "~/.emacs.d/lisp/sourcepair.el")
+
 ;;========================================================================================
 ;; Add scripts beneath this separator
 ;;========================================================================================
-
 (defalias 'yes-or-no-p 'y-or-n-p)
+;; Debugger
+(require 'realgud)
 
+;; Sessions
+(require 'session)
+(add-hook 'after-init-hook 'session-initialize)
+(session-jump-to-last-change)
+
+(defadvice save-buffers-kill-emacs (around no-query-kill-emacs activate)
+  "Prevent annoying \"Active processes exist\" query when you quit Emacs."
+  (cl-letf (((symbol-function #'process-list) (lambda ())))
+    ad-do-it))
+
+(setq create-lockfiles nil) 
 ;; Stop the annoying autosave
 (setq backup-directory-alist
           `((".*" . ,temporary-file-directory)))
@@ -23,65 +42,66 @@
           `((".*" ,temporary-file-directory t)))
 (setq make-backup-files nil)
 
+(require 'package)
+(package-initialize)
+(require 'rtags)
 (require 'company)
-(add-hook 'after-init-hook 'global-company-mode)
 
-(require 'irony)
-(add-hook 'c++-mode-hook 'irony-mode)
-(add-hook 'c-mode-hook 'irony-mode)
-(add-hook 'objc-mode-hook 'irony-mode)
-(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+(setq rtags-autostart-diagnostics t)
+(rtags-diagnostics)
+(setq rtags-completions-enabled t)
+(push 'company-rtags company-backends)
+(global-company-mode)
+(define-key c-mode-base-map (kbd "<C-tab>") (function company-complete))
 
-(defun my-irony-mode-hook ()
-  (define-key irony-mode-map [remap completion-at-point]
-    'irony-completion-at-point-async)
-  (define-key irony-mode-map [remap complete-symbol]
-    'irony-completion-at-point-async))
-(add-hook 'irony-mode-hook 'my-irony-mode-hook)
-;;(add-hook 'irony-mode-hook 'company-irony-setup-begin-commands)
+;; Flycheck rtags
+(require 'flycheck-rtags)
 
-(require 'company-irony-c-headers)
-(eval-after-load 'company
-  '(add-to-list
-    'company-backends '(company-irony-c-headers company-irony)))
+(defun my-flycheck-rtags-setup ()
+  (flycheck-select-checker 'rtags)
+  (setq-local flycheck-highlighting-mode nil) ;; RTags creates more accurate overlays.
+  (setq-local flycheck-check-syntax-automatically nil))
+;; c-mode-common-hook is also called by c++-mode
+(add-hook 'c-mode-common-hook 'my-flycheck-rtags-setup)
 
-(require 'flycheck-irony)
-;;(add-hook 'c++-mode-hook 'flycheck-mode)
-(add-hook 'c++-mode-hook (lambda () (setq flycheck-gcc-language-standard "c++11")))
-(add-hook 'c-mode-hook 'flycheck-mode)
-(eval-after-load 'flycheck
-  '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
-(defun irony--check-expansion ()
-  (save-excursion
-    (if (looking-at "\\_>") t
-      (backward-char 1)
-      (if (looking-at "\\.") t
-	(backward-char 1)
-	(if (looking-at "->") t nil)))))
-(defun irony--indent-or-complete ()
-  "Indent or Complete"
-  (interactive)
-  (cond ((and (not (use-region-p))
-	      (irony--check-expansion))
-	 (message "complete")
-	 (company-complete-common))
-	(t
-	 (message "indent")
-	 (call-interactively 'c-indent-line-or-region))))
-(defun irony-mode-keys ()
-  "Modify keymaps used by `irony-mode'."
-  (local-set-key (kbd "TAB") 'irony--indent-or-complete)
-  (local-set-key [tab] 'irony--indent-or-complete))
-(add-hook 'c-mode-common-hook 'irony-mode-keys)
+(global-flycheck-mode)
+
+(require 'rtags-helm)
+(setq rtags-use-helm t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Setup cmake-ide
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'cmake-ide)
+(cmake-ide-setup)
+;; Set cmake-ide-flags-c++ to use C++11
+(setq cmake-ide-flags-c++ (append '("-std=c++14")))
+;; We want to be able to compile with a keyboard shortcut
+(global-set-key (kbd "C-c m") 'cmake-ide-compile)
+
+;; Set rtags to enable completions and use the standard keybindings.
+;; A list of the keybindings can be found at:
+;; http://syamajala.github.io/c-ide.html
+(setq rtags-autostart-diagnostics t)
+(rtags-diagnostics)
+(setq rtags-completions-enabled t)
+(rtags-enable-standard-keybindings)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Package: yasnippet
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'yasnippet)
+;; To get a bunch of extra snippets that come in super handy see:
+;; https://github.com/AndreaCrotti/yasnippet-snippets
+;; or use:
+;; git clone https://github.com/AndreaCrotti/yasnippet-snippets.git ~/.emacs.d/yassnippet-snippets/
+(yas-global-mode 1)
+(yas-reload-all)
 
 ;; Switch to help window on open
 (setq help-window-select t)
 ;;===========================================
 (setq shell-file-name "bash")
-
-;; Switch between buffers by number
-(require 'frame-tag)
-(frame-tag-mode 1)
 
 ;; IComplete +
 (eval-after-load "icomplete" '(progn (require 'icomplete+)))
@@ -135,7 +155,7 @@
 ;; Protocol buffers
 
 (defconst my-protobuf-style
-  '((c-basic-offset . 2)
+  '((c-basic-offset . 3)
     (indent-tabs-mode . nil)))
 
 (add-hook 'protobuf-mode-hook
@@ -165,7 +185,7 @@
                        'face 'circe-prompt-face)
            " ")))
 (setq circe-format-say "{nick:-16s} {body}")
-(enable-circe-color-nicks)
+;;(enable-circe-color-nicks)
 (setq circe-use-cycle-completion t)
 (setq circe-reduce-lurker-spam t)
 
@@ -206,6 +226,17 @@
 (global-unset-key (kbd "C-x f")) ; fill
 (global-unset-key (kbd "C-x c")) ; fill
 (global-unset-key (kbd "M-z")) ; zap key
+
+(define-key global-map "\C-xz" 'sourcepair-load)
+(define-key global-map (kbd "M-_") (function rtags-location-stack-back))
+(define-key c-mode-base-map (kbd "M-.") (function rtags-find-symbol-at-point))
+(define-key c-mode-base-map (kbd "M-,") (function rtags-find-references-at-point))
+(define-key c-mode-base-map (kbd "M-;") (function rtags-find-file))
+(define-key c-mode-base-map (kbd "C-.") (function rtags-find-symbol))
+(define-key c-mode-base-map (kbd "C-,") (function rtags-find-references))
+(define-key c-mode-base-map (kbd "C-<") (function rtags-find-virtuals-at-point))
+(define-key c-mode-base-map (kbd "M-i") (function rtags-imenu))
+
 ;;(global-unset-key (kdb "\C-x\C-b")) ; buffer list
 ;; Move windows
 (global-set-key (kbd "<C-S-up>")     'buf-move-up)
@@ -218,19 +249,19 @@
 (global-set-key (kbd "C-c <up>")    'windmove-up)
 (global-set-key (kbd "C-c <down>")  'windmove-down)
 
+(global-set-key (kbd "<M-left>")   'wg-switch-left)
+(global-set-key (kbd "<M-right>")  'wg-switch-right)
+
 ;; Helm
-(global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key "\C-x\C-b" 'helm-buffers-list)
 
 ;; Binding keys
 (global-set-key (kbd "C-c c") 'comment-dwim)
-;; Using CEDET Eassist to switch between header and implementation
-(defun my-c-mode-common-hook ()
-   (define-key c-mode-base-map (kbd "C-x c") 'eassist-switch-h-cpp)
-   (define-key c-mode-base-map (kbd "C-x m") 'eassist-list-methods))
-(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 (add-hook 'c-mode-common-hook 'uncrustify-mode)
 
+(show-paren-mode 1)
+
+(desktop-save-mode 1)
 ;;===============================================================================
 
 ;; Leave anything below this line alone as emacs themes mess around with it
@@ -276,6 +307,7 @@
  '(hl-paren-colors
    (quote
     ("#B9F" "#B8D" "#B7B" "#B69" "#B57" "#B45" "#B33" "#B11")))
+ '(inhibit-startup-screen t)
  '(initial-scratch-message ";; Peristent scratch buffer
 
 ")
@@ -292,7 +324,7 @@
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (protobuf-mode helm clean-buffers circe-notifications circe egg buffer-move uncrustify-mode persistent-scratch realgud zonokai-theme zenburn-theme org icomplete+ frame-tag flycheck-irony dired-toggle-sudo darktooth-theme darcula-theme danneskjold-theme dakrone-theme cpputils-cmake company-irony-c-headers company-irony color-theme-solarized color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized colonoscopy-theme cmake-project cmake-ide clues-theme cherry-blossom-theme calmer-forest-theme boron-theme badwolf-theme atom-dark-theme arjen-grey-theme ample-zen-theme ample-theme alect-themes airline-themes ahungry-theme afternoon-theme)))
+    (yasnippet rtags protobuf-mode helm circe-notifications circe egg buffer-move uncrustify-mode persistent-scratch realgud zonokai-theme zenburn-theme org icomplete+ frame-tag dired-toggle-sudo darktooth-theme darcula-theme danneskjold-theme dakrone-theme cpputils-cmake color-theme-solarized color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized colonoscopy-theme cmake-project cmake-ide clues-theme cherry-blossom-theme calmer-forest-theme boron-theme badwolf-theme atom-dark-theme arjen-grey-theme ample-zen-theme ample-theme alect-themes airline-themes ahungry-theme afternoon-theme)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(persistent-scratch-autosave-mode t)
  '(persistent-scratch-backup-directory "~/Dropbox/backup/emacs-scratch")
@@ -301,6 +333,7 @@
  '(pos-tip-foreground-color "#FFFFC8")
  '(powerline-color1 "#222232")
  '(powerline-color2 "#333343")
+ '(session-use-package t nil (session))
  '(uncrustify-config-path "~/uncrustify.cfg")
  '(vc-annotate-background "#3b3b3b")
  '(vc-annotate-color-map

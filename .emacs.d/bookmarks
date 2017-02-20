@@ -1,0 +1,10 @@
+;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8-emacs -*- 
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("RTags_0"
+ (filename . "~/projects/neuronet/src/network.h")
+ (front-context-string . "Layer = std::vec")
+ (rear-context-string . "4_t>;\n    using ")
+ (position . 601))
+)
