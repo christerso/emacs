@@ -121,7 +121,7 @@ value is (\".h\" \".hpp\" \".hh\" ), and you are looking at \"foo.cpp\",
 order in the directories specified by `sourcepair-header-path'."
 :type '(repeat string))
 
-(defcustom sourcepair-source-path       '( "." "../src")
+(defcustom sourcepair-source-path       '( "." "../*")
   "*List of directories to search for corresponding source file.
 
 This variable is used by `sourcepair-load'.  The value should be a list
@@ -134,14 +134,14 @@ and then in the parent directory, and then in any subdirectories of the parent
 directory."
 :type '(repeat string))
 
-(defcustom sourcepair-header-path       '( "." "../include" )
+(defcustom sourcepair-header-path       '( "../*" "." )
   "*List of directories to search for corresponding header file.
 
 This is similar to `sourcepair-source-path' except for header files.  See the
 documentation for `sourcepair-source-path' for more info."
 :type '(repeat string))
 
-(defcustom sourcepair-recurse-ignore    '( "CVS" )
+(defcustom sourcepair-recurse-ignore    '( "CVS" ".git" )
   "*List of directories to ignore when recursively searching subdirectories.
 
 This variable is used by `sourcepair-load'.  The value should be a list

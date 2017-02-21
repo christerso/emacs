@@ -21,6 +21,12 @@
 ;; Add scripts beneath this separator
 ;;========================================================================================
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+(setq-default indent-tabs-mode nil)
+(setq tab-width 4) ; or any other preferred value
+(defvaralias 'c-basic-offset 'tab-width)
+(defvaralias 'cperl-indent-level 'tab-width)
+
 ;; Debugger
 (require 'realgud)
 
@@ -97,6 +103,26 @@
 ;; git clone https://github.com/AndreaCrotti/yasnippet-snippets.git ~/.emacs.d/yassnippet-snippets/
 (yas-global-mode 1)
 (yas-reload-all)
+
+(defun shk-yas/helm-prompt (prompt choices &optional display-fn)
+    "Use helm to select a snippet. Put this into `yas-prompt-functions.'"
+    (interactive)
+    (setq display-fn (or display-fn 'identity))
+    (if (require 'helm-config)
+        (let (tmpsource cands result rmap)
+          (setq cands (mapcar (lambda (x) (funcall display-fn x)) choices))
+          (setq rmap (mapcar (lambda (x) (cons (funcall display-fn x) x)) choices))
+          (setq tmpsource
+                (list
+                 (cons 'name prompt)
+                 (cons 'candidates cands)
+                 '(action . (("Expand" . (lambda (selection) selection))))
+                 ))
+          (setq result (helm-other-buffer '(tmpsource) "*helm-select-yasnippet"))
+          (if (null result)
+              (signal 'quit "user quit!")
+            (cdr (assoc result rmap))))
+      nil))
 
 ;; Switch to help window on open
 (setq help-window-select t)
