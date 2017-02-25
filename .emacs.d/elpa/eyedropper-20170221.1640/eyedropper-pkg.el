@@ -1,0 +1,1 @@
+(define-package "eyedropper" "20170221.1640" "Pick foreground and background colors at cursor or pointer." '((hexrgb "0")) :url "https://www.emacswiki.org/emacs/download/eyedropper.el" :keywords '("color" "rgb" "hsv" "hexadecimal" "face" "frame"))

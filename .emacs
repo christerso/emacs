@@ -12,10 +12,70 @@
 	  (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/")))
 (package-initialize)
 
+(require 'cmake-mode)
+
 ;; This directory is also used for as few script as possible that is not in melpa or elpa
-(add-to-list 'load-path "~/.emacs.d/lisp")
+(let ((default-directory  "~/.emacs.d/lisp/"))
+  (normal-top-level-add-subdirs-to-load-path))
 ;; An exception
 (load-file "~/.emacs.d/lisp/sourcepair.el")
+
+(setq gnus-select-method '(nnml "")) ;; this depends on how you want
+                                     ;; to get your mail
+(setq gnus-secondary-select-methods '((nntp "news.gmane.org")
+                                      (nntp "news.eternal-september.org")))
+(setq user-full-name "Christer Söderlund")
+(setq user-mail-address "christer.soderlund@gmail.com")
+
+;; default
+(require 'mu4e)
+(setq mu4e-maildir "~/Maildir")
+
+(setq mu4e-drafts-folder "/[Gmail].Drafts")
+(setq mu4e-sent-folder   "/[Gmail].Sent Mail")
+(setq mu4e-trash-folder  "/[Gmail].Trash")
+
+;; don't save message to Sent Messages, Gmail/IMAP takes care of this
+(setq mu4e-sent-messages-behavior 'delete)
+
+;; (See the documentation for `mu4e-sent-messages-behavior' if you have
+;; additional non-Gmail addresses and want assign them different
+;; behavior.)
+
+;; setup some handy shortcuts
+;; you can quickly switch to your Inbox -- press ``ji''
+;; then, when you want archive some messages, move them to
+;; the 'All Mail' folder by pressing ``ma''.
+
+(setq mu4e-maildir-shortcuts
+    '( ("/INBOX"               . ?i)
+       ("/[Gmail].Sent Mail"   . ?s)
+       ("/[Gmail].Trash"       . ?t)
+       ("/[Gmail].All Mail"    . ?a)))
+
+;; allow for updating mail using 'U' in the main view:
+(setq mu4e-get-mail-command "offlineimap")
+
+;; something about ourselves
+(setq
+   user-mail-address "christer.soderlund@gmail.com"
+   user-full-name  "Christer Söderlund")
+
+;; sending mail -- replace USERNAME with your gmail username
+;; also, make sure the gnutls command line utils are installed
+;; package 'gnutls-bin' in Debian/Ubuntu
+
+(require 'smtpmail)
+
+;; alternatively, for emacs-24 you can use:
+(setq message-send-mail-function 'smtpmail-send-it
+     smtpmail-stream-type 'starttls
+     smtpmail-default-smtp-server "smtp.gmail.com"
+     smtpmail-smtp-server "smtp.gmail.com"
+     smtpmail-smtp-service 587)
+
+;; don't keep message buffers around
+(setq message-kill-buffer-on-exit t)
 
 ;;========================================================================================
 ;; Add scripts beneath this separator
@@ -23,9 +83,8 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (setq-default indent-tabs-mode nil)
-(setq tab-width 4) ; or any other preferred value
-(defvaralias 'c-basic-offset 'tab-width)
-(defvaralias 'cperl-indent-level 'tab-width)
+(setq-default tab-width 4)
+(setq indent-line-function 'insert-tab)
 
 ;; Debugger
 (require 'realgud)
@@ -50,8 +109,14 @@
 
 (require 'package)
 (package-initialize)
+(require 'eyedropper)
+(require 'font-lock+)
+(require 'facemenu+)
 (require 'rtags)
 (require 'company)
+
+(eval-after-load "company"
+  '(add-to-list 'company-backends 'company-anaconda))
 
 (setq rtags-autostart-diagnostics t)
 (rtags-diagnostics)
@@ -211,7 +276,7 @@
                        'face 'circe-prompt-face)
            " ")))
 (setq circe-format-say "{nick:-16s} {body}")
-;;(enable-circe-color-nicks)
+(enable-circe-color-nicks)
 (setq circe-use-cycle-completion t)
 (setq circe-reduce-lurker-spam t)
 
@@ -224,14 +289,6 @@
 (setq
  lui-time-stamp-position 'right-margin
  lui-time-stamp-format "%H:%M")
-
-(add-hook 'lui-mode-hook 'my-circe-set-margin)
-(defun my-circe-set-margin ()
-  (setq right-margin-width 5))
-
-(setq
- lui-time-stamp-position 'right-margin
- lui-fill-type nil)
 
 (add-hook 'lui-mode-hook 'my-lui-setup)
 (defun my-lui-setup ()
@@ -249,7 +306,9 @@
 ;; KEY SETTINGS =================================================================
 
 ;; Unbinding any keys I do not want
+(global-unset-key (kbd "C-x p")) ; fill
 (global-unset-key (kbd "C-x f")) ; fill
+(global-unset-key (kbd "C-x r")) ; fill
 (global-unset-key (kbd "C-x c")) ; fill
 (global-unset-key (kbd "M-z")) ; zap key
 
@@ -275,8 +334,17 @@
 (global-set-key (kbd "C-c <up>")    'windmove-up)
 (global-set-key (kbd "C-c <down>")  'windmove-down)
 
-(global-set-key (kbd "<M-left>")   'wg-switch-left)
-(global-set-key (kbd "<M-right>")  'wg-switch-right)
+(global-set-key (kbd "C-c p") 'facemenup-customize-face-at-point)
+;;(global-set-key (kbd "<M-left>")   'wg-switch-left)
+;;(global-set-key (kbd "<M-right>")  'wg-switch-right)
+
+;; mu4e mail
+
+(global-set-key (kbd "C-c C-r") 'mu4e)
+(global-set-key (kbd "C-c c") 'comment-dwim)
+(require 'org-mu4e)
+(add-hook 'mu4e-compose-mode-hook 'org~mu4e-mime-switch-headers-or-body)
+(setq org-mu4e-link-query-in-headers-mode nil)
 
 ;; Helm
 (global-set-key "\C-x\C-b" 'helm-buffers-list)
@@ -288,6 +356,37 @@
 (show-paren-mode 1)
 
 (desktop-save-mode 1)
+
+(require 'flymake-json)
+(add-hook 'json-mode 'flymake-json-load)
+
+;; (require 'sr-speedbar)
+;; (global-set-key (kbd "s-s") 'sr-speedbar-toggle)
+;; (setq speedbar-use-images nil)
+;; (defadvice delete-other-windows (after my-sr-speedbar-delete-other-window-advice activate)
+;;   "Check whether we are in speedbar, if it is, jump to next window."
+;;   (let ()
+;; 	(when (and (sr-speedbar-window-exist-p sr-speedbar-window)
+;;                (eq sr-speedbar-window (selected-window)))
+;;       (other-window 1)
+;; 	)))
+;; (ad-enable-advice 'delete-other-windows 'after 'my-sr-speedbar-delete-other-window-advice)
+;; (ad-activate 'delete-other-windows)
+;; (sr-speedbar-open)
+;; (with-current-buffer sr-speedbar-buffer-name
+;;   (setq window-size-fixed 'width))
+
+(defun select-next-window ()
+  (other-window 1))
+
+(defun my-sr-speedbar-open-hook ()
+  (add-hook 'speedbar-before-visiting-file-hook 'select-next-window t)
+  (add-hook 'speedbar-before-visiting-tag-hook 'select-next-window t)
+  )
+
+(advice-add 'sr-speedbar-open :after #'my-sr-speedbar-open-hook)
+
+
 ;;===============================================================================
 
 ;; Leave anything below this line alone as emacs themes mess around with it
@@ -300,11 +399,16 @@
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
    ["#212121" "#CC5542" "#6aaf50" "#7d7c61" "#5180b3" "#DC8CC3" "#9b55c3" "#bdbdb3"])
+ '(circe-color-nicks-everywhere t)
  '(circe-default-nick "hardcampa")
  '(circe-default-part-message "...")
  '(circe-default-quit-message "...")
  '(circe-default-realname "hardcampa")
  '(circe-default-user "hardcampa")
+ '(circe-format-say "{nick:-16s} {body}")
+ '(circe-reduce-lurker-spam t)
+ '(circe-use-cycle-completion t)
+ '(compile-command "make -j10")
  '(custom-enabled-themes (quote (atom-dark)))
  '(custom-safe-themes
    (quote
@@ -312,15 +416,15 @@
  '(ensime-sem-high-faces
    (quote
     ((var :foreground "#9876aa" :underline
-	  (:style wave :color "yellow"))
+          (:style wave :color "yellow"))
      (val :foreground "#9876aa")
      (varField :slant italic)
      (valField :foreground "#9876aa" :slant italic)
      (functionCall :foreground "#a9b7c6")
      (implicitConversion :underline
-			 (:color "#808080"))
+                         (:color "#808080"))
      (implicitParams :underline
-		     (:color "#808080"))
+                     (:color "#808080"))
      (operator :foreground "#cc7832")
      (param :foreground "#a9b7c6")
      (class :foreground "#4e807d")
@@ -340,6 +444,7 @@
  '(linum-format (quote dynamic))
  '(main-line-color1 "#222232")
  '(main-line-color2 "#333343")
+ '(mu4e-confirm-quit nil)
  '(notmuch-search-line-faces
    (quote
     (("unread" :foreground "#aeee00")
@@ -388,6 +493,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "#1d1f21" :foreground "gainsboro" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 115 :width normal :foundry "DAMA" :family "Ubuntu Mono"))))
  '(circe-prompt-face ((t (:foreground "yellow" :weight bold))))
  '(company-preview ((t (:background "darkgray" :foreground "black"))))
  '(company-preview-common ((t (:background "dark slate gray" :foreground "white smoke"))))
@@ -400,8 +506,12 @@
  '(company-tooltip-common ((t (:foreground "white"))))
  '(company-tooltip-mouse ((t (:background "black" :foreground "deep sky blue"))))
  '(company-tooltip-selection ((t (:background "black" :foreground "orange"))))
+ '(font-lock-constant-face ((t (:foreground "SkyBlue2"))))
+ '(font-lock-string-face ((t (:foreground "orange"))))
+ '(font-lock-type-face ((t (:foreground "#36a2f4"))))
  '(isearch ((t (:background "black" :foreground "orange"))))
  '(isearch-fail ((t (:background "orange" :foreground "black"))))
  '(lazy-highlight ((t (:background "dark orange" :foreground "black"))))
+ '(mode-line ((t (:background "RoyalBlue4" :foreground "cornflower blue"))))
  '(region ((t (:background "light goldenrod" :foreground "dark blue" :inverse-video nil))))
  '(tty-menu-selected-face ((t (:background "dark green")))))
