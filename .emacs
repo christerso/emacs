@@ -2,16 +2,34 @@
 ;;========================================================================================
 ;; Christer Söderlunds Emacs config
 ;;========================================================================================
-
+;; (+ 2 (+ 3 3))
+;; fill-column
+;; (concat "test" "lala")
+;; (substring "Test" 0 1)
+;; (number-to-string 2)
+;; (message "test something %s like this" (+ 2 2))
+;; (set 'flowers '(rose tulipan daisy buttercup))
+;; (setq flowers '(rose tulipan daisy buttercup) something '(bla blaa))
+;; flowers
+;; (buffer-size)
+;; (point)
+;; (defun test-this (num)
+;;   "Multiply by 5"
+;;   (* num 5))
+;; (test_this 9)
 ;;; Code:
 (require 'package)
 (add-to-list 'package-archives
-			              '("melpa" . "https://melpa.org/packages/") t)
+             '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives
+  '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (when (< emacs-major-version 24)
     ;; For important compatibility libraries like cl-lib
 	  (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/")))
 (package-initialize)
 
+(require 'git-gutter)
+(global-git-gutter-mode +1)
 (require 'cmake-mode)
 
 ;; This directory is also used for as few script as possible that is not in melpa or elpa
@@ -213,12 +231,54 @@
 ;; Default directory is home directory
 (setq default-directory "~/")
 
+(require 'go-complete)
+(add-hook 'completion-at-point-functions 'go-complete-at-point)
+
+(require 'go-guru)
+(go-guru-hl-identifier-mode)
+(add-hook 'go-mode-hook #'go-guru-hl-identifier-mode)
+
 ;; CMake support
 (defun maybe-cmake-project-hook ()
   (if (file-exists-p "CMakeLists.txt") (cmake-project-mode)))
 (add-hook 'c-mode-hook 'maybe-cmake-project-hook)
 (add-hook 'c++-mode-hook 'maybe-cmake-project-hook)
+(add-hook 'c++-mode-hook 'linum-mode)
 
+(add-hook 'go-mode-hook 'go-mode)
+(setenv "GOPATH" "/home/christer/projects/gocode")
+(defun set-exec-path-from-shell-PATH ()
+  (let ((path-from-shell (replace-regexp-in-string
+                          "[ \t\n]*$"
+                          ""
+                          (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
+    (setenv "PATH" path-from-shell)
+    (setq eshell-path-env path-from-shell) ; for eshell users
+    (setq exec-path (split-string path-from-shell path-separator))))
+
+(when window-system (set-exec-path-from-shell-PATH))
+
+(defun auto-complete-for-go ()
+  (auto-complete-mode 1))
+(add-hook 'go-mode-hook 'auto-complete-for-go)
+
+(with-eval-after-load 'go-mode
+  (require 'go-autocomplete))
+;; Compile go
+(defun my-go-mode-hook ()
+  ;; use gomimports instead of go-fmt
+  (setq gofmt-command "goimports")
+  ;; Call GoFmt before saving
+  (add-hook 'before-save-hook 'gofmt-before-save)
+  ; Customize compile command to run go build
+  (if (not (string-match "go" compile-command))
+      (set (make-local-variable 'compile-command)
+           "go build -v && go test -v && go vet"))
+  ; Godef jump key binding
+  (local-set-key (kbd "M-.") 'godef-jump)
+  (local-set-key (kbd "M-*") 'pop-tag-mark)
+)
+(add-hook 'go-mode-hook 'my-go-mode-hook)
 ;; Remove toolbar and menu
 (menu-bar-mode 0)
 (tool-bar-mode -1)
@@ -265,7 +325,7 @@
 
 (setq circe-network-options
       '(("Freenode"
-         :nick "hardcampa"
+         :nick "Qvark"
          :channels ("#ubuntu")
          :nickserv-password my-nickserv-password)))
 
@@ -311,6 +371,15 @@
 (global-unset-key (kbd "C-x r")) ; fill
 (global-unset-key (kbd "C-x c")) ; fill
 (global-unset-key (kbd "M-z")) ; zap key
+(global-unset-key (kbd "<f5>")) ; zap key
+(global-unset-key (kbd "<f6>")) ; zap key
+(global-unset-key (kbd "<f7>")) ; zap key
+(global-unset-key (kbd "<f8>")) ; zap key
+(global-unset-key (kbd "<f9>")) ; zap key
+(global-unset-key (kbd "<f10>")) ; zap key
+(global-unset-key (kbd "<f11>")) ; zap key
+(global-unset-key (kbd "<f12>")) ; zap key
+
 
 (define-key global-map "\C-xz" 'sourcepair-load)
 (define-key global-map (kbd "M-_") (function rtags-location-stack-back))
@@ -338,8 +407,19 @@
 ;;(global-set-key (kbd "<M-left>")   'wg-switch-left)
 ;;(global-set-key (kbd "<M-right>")  'wg-switch-right)
 
-;; mu4e mail
+(global-set-key (kbd "C-c b") 'cmake-ide-compile)
 
+;; Debug
+
+(global-set-key (kbd "<f5>") 'gud-break)
+(global-set-key (kbd "<f6>") 'gud-next)
+(global-set-key (kbd "<f7>") 'gud-step)
+(global-set-key (kbd "<f8>") 'gud-up)
+(global-set-key (kbd "<f9>") 'gud-cont)
+(global-set-key (kbd "<f10>") 'gud-run)
+(global-set-key (kbd "<f11>") 'gud-stop-subjob)
+
+;; mu4e mail
 (global-set-key (kbd "C-c C-r") 'mu4e)
 (global-set-key (kbd "C-c c") 'comment-dwim)
 (require 'org-mu4e)
@@ -379,12 +459,12 @@
 (defun select-next-window ()
   (other-window 1))
 
-(defun my-sr-speedbar-open-hook ()
-  (add-hook 'speedbar-before-visiting-file-hook 'select-next-window t)
-  (add-hook 'speedbar-before-visiting-tag-hook 'select-next-window t)
-  )
+;; (defun my-sr-speedbar-open-hook ()
+;;   (add-hook 'speedbar-before-visiting-file-hook 'select-next-window t)
+;;   (add-hook 'speedbar-before-visiting-tag-hook 'select-next-window t)
+;;   )
 
-(advice-add 'sr-speedbar-open :after #'my-sr-speedbar-open-hook)
+;; (advice-add 'sr-speedbar-open :after #'my-sr-speedbar-open-hook)
 
 
 ;;===============================================================================
@@ -408,6 +488,11 @@
  '(circe-format-say "{nick:-16s} {body}")
  '(circe-reduce-lurker-spam t)
  '(circe-use-cycle-completion t)
+ '(cmake-ide-build-dir "/home/christer/projects/neuronet/build")
+ '(cmake-ide-cmake-command "cmake")
+ '(cmake-ide-compile-command nil)
+ '(cmake-ide-flags-c++ (quote ("-std=c++14")))
+ '(cmake-ide-make-command "make -j10")
  '(compile-command "make -j10")
  '(custom-enabled-themes (quote (atom-dark)))
  '(custom-safe-themes
@@ -465,6 +550,8 @@
  '(powerline-color1 "#222232")
  '(powerline-color2 "#333343")
  '(session-use-package t nil (session))
+ '(show-paren-mode t)
+ '(tool-bar-mode nil)
  '(uncrustify-config-path "~/uncrustify.cfg")
  '(vc-annotate-background "#3b3b3b")
  '(vc-annotate-color-map
@@ -493,7 +580,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#1d1f21" :foreground "gainsboro" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 115 :width normal :foundry "DAMA" :family "Ubuntu Mono"))))
+ '(default ((t (:inherit nil :stipple nil :background "#1e1e1e" :foreground "gainsboro" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 108 :width normal :foundry "GOOG" :family "Noto Mono"))))
  '(circe-prompt-face ((t (:foreground "yellow" :weight bold))))
  '(company-preview ((t (:background "darkgray" :foreground "black"))))
  '(company-preview-common ((t (:background "dark slate gray" :foreground "white smoke"))))
@@ -507,6 +594,7 @@
  '(company-tooltip-mouse ((t (:background "black" :foreground "deep sky blue"))))
  '(company-tooltip-selection ((t (:background "black" :foreground "orange"))))
  '(font-lock-constant-face ((t (:foreground "SkyBlue2"))))
+ '(font-lock-function-name-face ((t (:foreground "DeepSkyBlue3"))))
  '(font-lock-string-face ((t (:foreground "orange"))))
  '(font-lock-type-face ((t (:foreground "#36a2f4"))))
  '(isearch ((t (:background "black" :foreground "orange"))))

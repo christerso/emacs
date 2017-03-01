@@ -2,722 +2,260 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Sat Feb 25 15:26:39 2017
+;; Created Wed Mar  1 18:32:56 2017
 ;; Desktop file format version 206
 ;; Emacs version 24.5.1
 
 ;; Global section:
-(setq desktop-saved-frameset [frameset 1 (22705 37919 103432 915000) (desktop . "206") "christer@Labbox" nil nil ((((font-backend xft x) (font . "-DAMA-Ubuntu Mono-normal-normal-normal-*-17-*-*-*-m-0-iso10646-1") (font-parameter . "Ubuntu Mono 13") (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (foreground-color . "#c5c8c6") (background-color . "#1d1f21") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 9) (right-fringe . 9) (scroll-bar-foreground . "#eeeeee") (scroll-bar-background . "#444444") (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (wait-for-wm . t) (fullscreen) (tool-bar-position . top) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (alpha) (display-type . color) (background-mode . dark) (cursor-color . "white") (visibility) (frameset--id . "A523-C4CB-2440-95A5") (frameset--mini t) (modeline . t) (minibuffer . t) (unsplittable) (icon-name) (display . ":0") (explicit-name) (height . 79) (width . 283) (left . 0) (top . 0)) ((min-height . 4) (min-width . 10) (min-height-ignore . 2) (min-width-ignore . 4) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 72) (min-pixel-width . 90) (min-pixel-height-ignore . 36) (min-pixel-width-ignore . 36) (min-pixel-height-safe . 18) (min-pixel-width-safe . 18)) leaf (pixel-width . 2565) (pixel-height . 1404) (total-width . 285) (total-height . 78) (normal-height . 1.0) (normal-width . 1.0) (buffer "*scratch*" (selected) (hscroll . 0) (fringes 9 9 nil) (margins nil) (scroll-bars 0 0 nil nil) (vscroll . 0) (dedicated) (point . 1) (start . 1))) (((font-backend xft x) (font . "-DAMA-Ubuntu Mono-normal-normal-normal-*-17-*-*-*-m-0-iso10646-1") (font-parameter . "Ubuntu Mono 13") (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (foreground-color . "#c5c8c6") (background-color . "#1d1f21") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 9) (right-fringe . 9) (scroll-bar-foreground . "#eeeeee") (scroll-bar-background . "#444444") (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (wait-for-wm . t) (fullscreen . maximized) (tool-bar-position . top) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (alpha) (horizontal-scroll-bars . t) (display-type . color) (background-mode . dark) (cursor-color . "white") (sticky) (environment) (frameset--id . "6A68-C446-C5D3-77EC") (frameset--mini t . t) (modeline . t) (minibuffer . t) (unsplittable) (icon-name) (display . ":0") (explicit-name) (visibility . t) (height . 77) (width . 282) (left . 2) (top . 0)) ((min-height . 4) (min-width . 20) (min-height-ignore . 2) (min-width-ignore . 8) (min-height-safe . 1) (min-width-safe . 4) (min-pixel-height . 72) (min-pixel-width . 180) (min-pixel-height-ignore . 36) (min-pixel-width-ignore . 72) (min-pixel-height-safe . 18) (min-pixel-width-safe . 36)) hc (pixel-width . 2558) (pixel-height . 1369) (total-width . 284) (total-height . 76) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 1280) (pixel-height . 1369) (total-width . 142) (total-height . 76) (normal-height . 1.0) (normal-width . 0.5) (buffer ".emacs" (selected) (hscroll . 0) (fringes 9 9 nil) (margins nil) (scroll-bars 0 0 t nil) (vscroll . 0) (dedicated) (point . 3771) (start . 2672))) (leaf (last . t) (pixel-width . 1278) (pixel-height . 1369) (total-width . 142) (total-height . 76) (normal-height . 1.0) (normal-width . 0.5) (buffer "*Help*" (selected . t) (hscroll . 0) (fringes 9 9 nil) (margins nil) (scroll-bars 0 0 t nil) (vscroll . 0) (dedicated) (point . 850) (start . 1)))))])
+(setq desktop-saved-frameset [frameset 1 (22711 1480 594079 103000) (desktop . "206") "christer@Labbox" nil nil ((((font-backend xft x) (font . "-GOOG-Noto Mono-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1") (font-parameter) (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (foreground-color . "gainsboro") (background-color . "#1e1e1e") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 10) (right-fringe . 10) (scroll-bar-foreground . "#e0dedb") (scroll-bar-background . "#302f2f") (menu-bar-lines . 0) (tool-bar-lines . 0) (title) (wait-for-wm . t) (fullscreen . maximized) (tool-bar-position . top) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 0) (alpha) (horizontal-scroll-bars . t) (display-type . color) (background-mode . dark) (cursor-color . "white") (sticky) (environment) (frameset--id . "4C22-9BE3-EE7F-83A4") (frameset--mini t . t) (modeline . t) (minibuffer . t) (unsplittable) (icon-name) (display . ":0") (explicit-name) (visibility . t) (height . 73) (width . 254) (left . 0) (top . 0)) ((min-height . 8) (min-width . 10) (min-height-ignore . 4) (min-width-ignore . 4) (min-height-safe . 2) (min-width-safe . 2) (min-pixel-height . 152) (min-pixel-width . 100) (min-pixel-height-ignore . 76) (min-pixel-width-ignore . 40) (min-pixel-height-safe . 38) (min-pixel-width-safe . 20)) vc (pixel-width . 2560) (pixel-height . 1369) (total-width . 256) (total-height . 72) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 2560) (pixel-height . 685) (total-width . 256) (total-height . 36) (normal-height . 0.5) (normal-width . 1.0) (buffer "hello.go" (selected . t) (hscroll . 0) (fringes 10 10 nil) (margins nil) (scroll-bars 0 0 t nil) (vscroll . 0) (dedicated) (point . 158) (start . 1))) (leaf (last . t) (pixel-width . 2560) (pixel-height . 684) (total-width . 256) (total-height . 36) (normal-height . 0.5) (normal-width . 1.0) (buffer "*compilation*" (selected) (hscroll . 0) (fringes 10 10 nil) (margins nil) (scroll-bars 0 0 t nil) (vscroll . 0) (dedicated) (point . 1) (start . 1)))))])
 (setq desktop-missing-file-warning nil)
 (setq tags-file-name nil)
 (setq tags-table-list nil)
-(setq search-ring '("font-lock" "facemenu" "company" "anaconda" "home" "projects" "speed" "s" "python" "att-k" "tab" "project" "cmake" "mak" "home" "json"))
+(setq search-ring '("go-guru" "projects" "gofmt" "go" "GOPATH" "setenv" "go" "exec-path" "golang" ".bashr" "compile" "projects" "go-auto" "go-" "go" "c++"))
 (setq regexp-search-ring nil)
 (setq register-alist nil)
-(setq file-name-history '("~/.emacs.d/elpa/font-lock+-20170222.1755/font-lock+-autoloads.el" "~/.emacs.d/elpa/facemenu+-20170222.1744/facemenu+-autoloads.el" "~/projects/playback-cpp-coding-challenge-master/main.cpp" "/usr/local/share/doc/mu/NEWS.org" "~/.emacs.d/lisp/sourcepair.el" "/usr/local/share/doc/mu/mu4e-about.org" "~/projects/neuronet/CMakeLists.txt" "~/.offlineimaprc" "~/projects/Home24/articles.py" "~/projects/playback-cpp-coding-challenge-master/mixer.cpp" "~/projects/Home24/home24.py" "~/.emacs" "~/.emacs.d/elpa/company-anaconda-20160809.705/company-anaconda-autoloads.el" "~/projects/playback-cpp-coding-challenge-master/main.cpp" "/usr/local/share/doc/mu/NEWS.org" "~/.emacs.d/lisp/sourcepair.el" "/usr/local/share/doc/mu/mu4e-about.org" "~/projects/neuronet/CMakeLists.txt" "~/.offlineimaprc" "~/.emacs" "~/projects/Home24/articles.py" "~/projects/playback-cpp-coding-challenge-master/mixer.h" "~/projects/Home24/home24.py" "~/projects/playback-cpp-coding-challenge-master/main.cpp" "/usr/local/share/doc/mu/NEWS.org" "~/.emacs.d/lisp/sourcepair.el" "/usr/local/share/doc/mu/mu4e-about.org" "~/projects/neuronet/CMakeLists.txt" "~/.offlineimaprc" "~/.emacs" "~/projects/Home24/articles.py" "~/projects/playback-cpp-coding-challenge-master/mixer.cpp" "~/projects/Home24/home24.py" "~/projects/playback-cpp-coding-challenge-master/main.cpp" "/usr/local/share/doc/mu/NEWS.org" "~/.emacs.d/lisp/sourcepair.el" "/usr/local/share/doc/mu/mu4e-about.org" "~/projects/neuronet/CMakeLists.txt" "~/.offlineimaprc" "~/projects/playback-cpp-coding-challenge-master/mixer.h" "~/.emacs" "~/projects/Home24/articles.py" "~/projects/Home24/home24.py" "~/projects/Home24/articles.py" "~/projects/playback-cpp-coding-challenge-master/main.cpp" "/usr/local/share/doc/mu/NEWS.org" "~/.emacs.d/lisp/sourcepair.el" "/usr/local/share/doc/mu/mu4e-about.org" "~/projects/neuronet/CMakeLists.txt" "~/.offlineimaprc" "~/projects/Home24/home24.py" "~/projects/playback-cpp-coding-challenge-master/mixer.cpp" "~/.emacs" "~/projects/playback-cpp-coding-challenge-master/main.cpp" "/usr/local/share/doc/mu/NEWS.org" "~/.emacs.d/lisp/sourcepair.el" "/usr/local/share/doc/mu/mu4e-about.org" "~/projects/neuronet/CMakeLists.txt" "~/.offlineimaprc" "~/projects/playback-cpp-coding-challenge-master/mixer.h" "~/projects/Home24/home24.py" "~/.emacs" "~/projects/Home24/home24.py" "/home/christer/.emacs" "~/.emacs.d/elpa/anaconda-mode-20170214.556/anaconda-mode-autoloads.el" "~/.emacs.d/elpa/pythonic-20160221.1123/pythonic-autoloads.el" "~/projects/Home24/home24.py" "~/projects/playback-cpp-coding-challenge-master/main.cpp" "/usr/local/share/doc/mu/NEWS.org" "~/.emacs.d/lisp/sourcepair.el" "/usr/local/share/doc/mu/mu4e-about.org" "~/projects/neuronet/CMakeLists.txt" "~/.offlineimaprc" "~/projects/playback-cpp-coding-challenge-master/mixer.cpp" "~/projects/Home24/home24-test-data.json" "~/projects/home24/Home24/CMakeLists.txt" "~/.emacs.d/elpa/cmake-mode-20160928.505/cmake-mode-autoloads.el" "~/projects/home24/Home24/CMakeLists.txt" "~/projects/home24/Home24/articleparser.h" "~/projects/home24/Home24/articleparser.cpp" "~/projects/playback-cpp-coding-challenge-master/main.cpp" "/usr/local/share/doc/mu/NEWS.org" "~/.emacs.d/lisp/sourcepair.el" "/usr/local/share/doc/mu/mu4e-about.org" "~/projects/neuronet/CMakeLists.txt" "~/.offlineimaprc" "~/projects/playback-cpp-coding-challenge-master/mixer.h" "~/projects/playback-cpp-coding-challenge-master/mixersource.cpp" "~/projects/playback-cpp-coding-challenge-master/fileReader.cpp" "~/projects/playback-cpp-coding-challenge-master/fileReader.h" "/../storage/projects/neuronet/src/network.cpp" "/../storage/projects/neuronet/src/neuron.cpp" "/../storage/projects/neuronet/src/network.h" "~/.emacs" "~/projects/playback-cpp-coding-challenge-master/mixer.cpp" "~/projects/playback-cpp-coding-challenge-master/main.cpp" "/usr/local/share/doc/mu/NEWS.org" "~/.emacs.d/lisp/sourcepair.el" "/usr/local/share/doc/mu/mu4e-about.org" "~/projects/neuronet/CMakeLists.txt" "~/.offlineimaprc" "~/projects/playback-cpp-coding-challenge-master/mixer.cpp" "~/.emacs" "/../storage/projects/Home24/home24-test-data.json" "~/projects/Home24/home24-test-data.json" "~/.emacs.d/elpa/json-mode-20160803.1606/json-mode-autoloads.el" "~/.emacs.d/elpa/json-reformat-20160212.53/json-reformat-autoloads.el" "~/.emacs.d/elpa/json-snatcher-20150511.2047/json-snatcher-autoloads.el" "~/.emacs.d/elpa/flymake-json-20130423.2357/flymake-json-autoloads.el" "~/.emacs.d/elpa/flymake-easy-20140818.55/flymake-easy-autoloads.el" "~/projects/playback-cpp-coding-challenge-master/main.cpp" "/usr/local/share/doc/mu/NEWS.org" "~/.emacs.d/lisp/sourcepair.el" "/usr/local/share/doc/mu/mu4e-about.org" "~/projects/neuronet/CMakeLists.txt" "~/.offlineimaprc" "~/projects/playback-cpp-coding-challenge-master/player.cpp" "~/.emacs" "~/projects/playback-cpp-coding-challenge-master/main.cpp" "/usr/local/share/doc/mu/NEWS.org" "~/.emacs.d/lisp/sourcepair.el" "/usr/local/share/doc/mu/mu4e-about.org" "~/projects/neuronet/CMakeLists.txt" "~/projects/playback-cpp-coding-challenge-master/mixer.cpp" "~/.offlineimaprc" "~/.emacs" "~/projects/playback-cpp-coding-challenge-master/main.cpp" "/usr/local/share/doc/mu/NEWS.org" "~/.emacs.d/lisp/sourcepair.el" "/usr/local/share/doc/mu/mu4e-about.org" "~/projects/neuronet/CMakeLists.txt" "~/projects/playback-cpp-coding-challenge-master/player.cpp" "~/.offlineimaprc" "~/.emacs" "/home/christer/.offlineimaprc" "~/projects/playback-cpp-coding-challenge-master/main.cpp" "/usr/local/share/doc/mu/NEWS.org" "~/.emacs.d/lisp/sourcepair.el" "/usr/local/share/doc/mu/mu4e-about.org" "~/projects/neuronet/CMakeLists.txt" "~/.emacs" "~/projects/playback-cpp-coding-challenge-master/player.cpp" "~/projects/playback-cpp-coding-challenge-master/main.cpp" "~/projects/playback-cpp-coding-challenge-master/fileReader.h" "~/projects/playback-cpp-coding-challenge-master/fileReader.cpp" "/usr/local/share/doc/mu/NEWS.org" "~/.emacs.d/lisp/sourcepair.el" "/usr/local/share/doc/mu/mu4e-about.org" "~/projects/neuronet/CMakeLists.txt" "~/projects/playback-cpp-coding-challenge-master/mixer.cpp" "~/.emacs" "/usr/local/share/doc/mu/NEWS.org" "~/.emacs.d/lisp/sourcepair.el" "/usr/local/share/doc/mu/mu4e-about.org" "~/projects/neuronet/CMakeLists.txt" "~/projects/playback-cpp-coding-challenge-master/mixer.cpp" "~/.emacs" "/usr/local/share/doc/mu/NEWS.org" "~/.emacs.d/lisp/sourcepair.el" "/usr/local/share/doc/mu/mu4e-about.org" "~/projects/neuronet/CMakeLists.txt" "~/projects/playback-cpp-coding-challenge-master/mixer.cpp" "~/.emacs"))
+(setq file-name-history '("/usr/local/go/src/strings/strings.go" "/usr/local/go/src/io/ioutil/ioutil.go" "~/.bashrc" "/usr/local/go/src/fmt/print.go" "~/.emacs" "~/projects/gocode/src/github.com/christerso/hello/hello.go" "~/.emacs.d/elpa/go-impl-20170125.752/go-impl-autoloads.el" "~/.emacs.d/elpa/go-complete-20151015.228/go-complete-autoloads.el" "~/.emacs.d/elpa/go-guru-20161117.331/go-guru-autoloads.el" "~/.bashrc" "/usr/local/go/src/fmt/print.go" "~/projects/gocode/src/github.com/christerso/hello/hello.go" "~/.emacs" "~/.bashrc" "/usr/local/go/src/fmt/print.go" "~/projects/gocode/src/github.com/christerso/hello/hello.go" "~/.emacs" "/usr/local/go/src/fmt/doc.go" "~/.bashrc" "/usr/local/go/src/fmt/print.go" "~/projects/gocode/src/github.com/christerso/hello/hello.go" "~/.emacs" "/usr/local/go/src/fmt/print.go" "~/.emacs" "~/.bashrc" "~/projects/gocode/src/github.com/christerso/hello/hello.go" "~/projects/gocode/bin/godef" "~/projects/gocode/src/github.com/christerso/hello/hello.go" "~/.emacs.d/elpa/go-snippets-20151121.2257/go-snippets-autoloads.el" "~/.emacs.d/elpa/go-scratch-20150809.2140/go-scratch-autoloads.el" "~/.emacs.d/elpa/go-playground-cli-20160503.214/go-playground-cli-autoloads.el" "~/.emacs.d/elpa/request-20170131.1747/request-autoloads.el" "~/.emacs.d/elpa/deferred-20161228.1930/deferred-autoloads.el" "~/.emacs.d/elpa/names-20151201.404/names-autoloads.el" "~/.emacs.d/elpa/go-playground-20170226.43/go-playground-autoloads.el" "~/.emacs.d/elpa/gotest-20161017.204/gotest-autoloads.el" "~/.bashrc" "~/.emacs" "~/projects/go/src/github.com/christerso/hello/hello.go" "~/.emacs" "~/.emacs.d/elpa/go-autocomplete-20150903.1940/go-autocomplete-autoloads.el" "~/.emacs.d/elpa/auto-complete-20170124.1845/auto-complete-autoloads.el" "~/.emacs" "/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qstring.h" "~/projects/neuronet/3pp/spdlog/include/spdlog/details/log_msg.h" "~/projects/neuronet/3pp/spdlog/include/spdlog/details/logger_impl.h" "/usr/include/c++/5/bits/shared_ptr_base.h" "~/projects/Home24/home24.py" "~/projects/Home24/articles.py" "~/projects/Home24/readme.txt" "~/projects/playback-cpp-coding-challenge-master/mixer.h" "~/projects/playback-cpp-coding-challenge-master/mixersource.cpp" "~/projects/playback-cpp-coding-challenge-master/fileReader.cpp" "~/projects/playback-cpp-coding-challenge-master/fileReader.h" "~/projects/playback-cpp-coding-challenge-master/player.cpp" "~/projects/playback-cpp-coding-challenge-master/fileSink.h" "~/projects/playback-cpp-coding-challenge-master/fileSink.cpp" "~/projects/playback-cpp-coding-challenge-master/mixer.cpp" "~/projects/playback-cpp-coding-challenge-master/player.h" "~/projects/playback-cpp-coding-challenge-master/networkReader.h" "~/projects/playback-cpp-coding-challenge-master/mixersource.h" "~/projects/playback-cpp-coding-challenge-master/main.cpp" "~/projects/neuronet/CMakeLists.txt" "~/projects/neuronet/src/CMakeLists.txt" "~/projects/neuronet/qt/inc/mainwindow.h" "~/projects/neuronet/qt/src/mainwindow.cpp" "~/projects/neuronet/src/main.cpp" "~/projects/neuronet/build/src/ui_mainwindow.h" "/../storage/projects/neuronet/src/neuron.cpp" "/../storage/projects/neuronet/src/network.h" "/../storage/projects/neuronet/src/network.cpp" "~/.emacs.d/.emacs-buffers" "~/projects/go/src/github.com/christerso/hello/hello.go" "~/.emacs" "~/.emacs.d/elpa/exec-path-from-shell-20170212.2116/exec-path-from-shell-autoloads.el" "/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qstring.h" "~/projects/neuronet/3pp/spdlog/include/spdlog/details/log_msg.h" "~/projects/neuronet/3pp/spdlog/include/spdlog/details/logger_impl.h" "/usr/include/c++/5/bits/shared_ptr_base.h" "~/projects/Home24/home24.py" "~/projects/Home24/articles.py" "~/projects/Home24/readme.txt" "~/projects/playback-cpp-coding-challenge-master/mixer.h" "~/projects/playback-cpp-coding-challenge-master/mixersource.cpp" "~/projects/playback-cpp-coding-challenge-master/fileReader.cpp" "~/projects/playback-cpp-coding-challenge-master/fileReader.h" "~/projects/playback-cpp-coding-challenge-master/player.cpp" "~/projects/playback-cpp-coding-challenge-master/fileSink.h" "~/projects/playback-cpp-coding-challenge-master/fileSink.cpp" "~/projects/playback-cpp-coding-challenge-master/mixer.cpp" "~/projects/playback-cpp-coding-challenge-master/player.h" "~/projects/playback-cpp-coding-challenge-master/networkReader.h" "~/projects/playback-cpp-coding-challenge-master/mixersource.h" "~/projects/playback-cpp-coding-challenge-master/main.cpp" "~/projects/neuronet/CMakeLists.txt" "~/projects/neuronet/src/CMakeLists.txt" "~/projects/neuronet/qt/inc/mainwindow.h" "~/projects/neuronet/qt/src/mainwindow.cpp" "~/projects/neuronet/src/main.cpp" "~/projects/neuronet/build/src/ui_mainwindow.h" "/../storage/projects/neuronet/src/neuron.cpp" "/../storage/projects/neuronet/src/network.h" "/../storage/projects/neuronet/src/network.cpp" "~/.emacs.d/.emacs-buffers" "~/.emacs" "~/projects/go/src/github.com/christerso/hello/hello.go" "~/.emacs.d/elpa/company-go-20161006.1616/company-go-autoloads.el" "~/.emacs.d/elpa/go-mode-20170228.916/go-mode-autoloads.el" "~/projects/go/src/github.com/christerso/hello/hello.go" "/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qstring.h" "~/projects/neuronet/3pp/spdlog/include/spdlog/details/log_msg.h" "~/projects/neuronet/3pp/spdlog/include/spdlog/details/logger_impl.h" "/usr/include/c++/5/bits/shared_ptr_base.h" "~/projects/Home24/home24.py" "~/projects/Home24/articles.py" "~/projects/Home24/readme.txt" "~/projects/playback-cpp-coding-challenge-master/mixer.h" "~/projects/playback-cpp-coding-challenge-master/mixersource.cpp" "~/projects/playback-cpp-coding-challenge-master/fileReader.cpp" "~/projects/playback-cpp-coding-challenge-master/fileReader.h" "~/projects/playback-cpp-coding-challenge-master/player.cpp" "~/projects/playback-cpp-coding-challenge-master/fileSink.h" "~/projects/playback-cpp-coding-challenge-master/fileSink.cpp" "~/projects/playback-cpp-coding-challenge-master/mixer.cpp" "~/projects/playback-cpp-coding-challenge-master/player.h" "~/projects/playback-cpp-coding-challenge-master/networkReader.h" "~/projects/playback-cpp-coding-challenge-master/mixersource.h" "~/projects/playback-cpp-coding-challenge-master/main.cpp" "~/projects/neuronet/CMakeLists.txt" "~/projects/neuronet/src/CMakeLists.txt" "~/projects/neuronet/qt/inc/mainwindow.h" "~/projects/neuronet/qt/src/mainwindow.cpp" "~/projects/neuronet/src/main.cpp" "~/projects/neuronet/build/src/ui_mainwindow.h" "/../storage/projects/neuronet/src/neuron.cpp" "/../storage/projects/neuronet/src/network.h" "/../storage/projects/neuronet/src/network.cpp" "~/.emacs.d/.emacs-buffers" "~/.emacs" "~/.emacs.d/.emacs-buffers" "~/.emacs.d/elpa/git-gutter-20161105.656/git-gutter-autoloads.el" "/home/christer/.private.el" "/../storage/projects/neuronet/src/neuron.cpp" "/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qstring.h" "~/projects/neuronet/3pp/spdlog/include/spdlog/details/log_msg.h" "~/projects/neuronet/3pp/spdlog/include/spdlog/details/logger_impl.h" "/usr/include/c++/5/bits/shared_ptr_base.h" "~/projects/Home24/home24.py" "~/projects/Home24/articles.py" "~/projects/Home24/readme.txt" "~/projects/playback-cpp-coding-challenge-master/mixer.h" "~/projects/playback-cpp-coding-challenge-master/mixersource.cpp" "~/projects/playback-cpp-coding-challenge-master/fileReader.cpp" "~/projects/playback-cpp-coding-challenge-master/fileReader.h" "/../storage/projects/neuronet/src/neuron.cpp" "~/projects/playback-cpp-coding-challenge-master/player.cpp" "~/projects/playback-cpp-coding-challenge-master/fileSink.h" "~/projects/playback-cpp-coding-challenge-master/fileSink.cpp" "~/projects/playback-cpp-coding-challenge-master/mixer.cpp" "~/projects/playback-cpp-coding-challenge-master/player.h" "~/projects/playback-cpp-coding-challenge-master/networkReader.h" "~/projects/playback-cpp-coding-challenge-master/mixersource.h" "~/projects/playback-cpp-coding-challenge-master/main.cpp" "/../storage/projects/neuronet/src/network.h" "~/projects/neuronet/CMakeLists.txt" "~/projects/neuronet/src/CMakeLists.txt" "~/projects/neuronet/qt/inc/mainwindow.h" "~/projects/neuronet/qt/src/mainwindow.cpp" "~/projects/neuronet/src/main.cpp" "~/projects/neuronet/build/src/ui_mainwindow.h" "~/.emacs" "/../storage/projects/neuronet/src/network.cpp" "/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qstring.h" "~/projects/neuronet/3pp/spdlog/include/spdlog/details/log_msg.h" "~/projects/neuronet/3pp/spdlog/include/spdlog/details/logger_impl.h" "/usr/include/c++/5/bits/shared_ptr_base.h" "~/projects/Home24/home24.py" "~/projects/Home24/articles.py" "~/projects/Home24/readme.txt" "~/projects/playback-cpp-coding-challenge-master/mixer.h" "~/projects/playback-cpp-coding-challenge-master/mixersource.cpp" "~/projects/playback-cpp-coding-challenge-master/fileReader.cpp" "~/projects/playback-cpp-coding-challenge-master/fileReader.h" "/../storage/projects/neuronet/src/neuron.cpp" "~/projects/playback-cpp-coding-challenge-master/player.cpp" "~/projects/playback-cpp-coding-challenge-master/fileSink.h" "~/projects/playback-cpp-coding-challenge-master/fileSink.cpp" "~/projects/playback-cpp-coding-challenge-master/mixer.cpp" "~/projects/playback-cpp-coding-challenge-master/player.h" "~/projects/playback-cpp-coding-challenge-master/networkReader.h" "~/projects/playback-cpp-coding-challenge-master/mixersource.h" "~/projects/playback-cpp-coding-challenge-master/main.cpp" "/../storage/projects/neuronet/src/network.h" "/../storage/projects/neuronet/src/network.cpp" "~/projects/neuronet/CMakeLists.txt" "~/projects/neuronet/src/CMakeLists.txt" "~/projects/neuronet/qt/inc/mainwindow.h" "~/projects/neuronet/qt/src/mainwindow.cpp" "~/projects/neuronet/src/main.cpp" "~/projects/neuronet/build/src/ui_mainwindow.h" "~/.emacs" "/opt/Qt5.8.0/5.8/gcc_64/include/QtCore/qstring.h" "~/projects/neuronet/build/src/ui_mainwindow.h" "~/projects/neuronet/3pp/spdlog/include/spdlog/details/log_msg.h" "~/projects/neuronet/3pp/spdlog/include/spdlog/details/logger_impl.h" "/usr/include/c++/5/bits/shared_ptr_base.h" "~/projects/neuronet/src/main.cpp" "~/projects/Home24/home24.py" "~/projects/Home24/articles.py" "~/projects/Home24/readme.txt" "~/projects/playback-cpp-coding-challenge-master/mixer.h" "~/projects/playback-cpp-coding-challenge-master/mixersource.cpp" "~/projects/playback-cpp-coding-challenge-master/fileReader.cpp" "~/projects/playback-cpp-coding-challenge-master/fileReader.h" "/../storage/projects/neuronet/src/neuron.cpp" "~/projects/playback-cpp-coding-challenge-master/player.cpp" "~/projects/neuronet/qt/src/mainwindow.cpp" "~/projects/neuronet/qt/inc/mainwindow.h" "~/projects/playback-cpp-coding-challenge-master/fileSink.h" "~/projects/playback-cpp-coding-challenge-master/fileSink.cpp" "~/projects/playback-cpp-coding-challenge-master/mixer.cpp" "~/projects/playback-cpp-coding-challenge-master/player.h" "~/projects/playback-cpp-coding-challenge-master/networkReader.h" "~/projects/playback-cpp-coding-challenge-master/mixersource.h" "~/.emacs" "~/projects/playback-cpp-coding-challenge-master/main.cpp" "/../storage/projects/neuronet/src/network.h" "/../storage/projects/neuronet/src/network.cpp" "~/projects/neuronet/CMakeLists.txt" "~/projects/neuronet/src/CMakeLists.txt" "~/projects/neuronet/CMakeLists.txt" "~/projects/neuronet/src/CMakeLists.txt" "~/projects/Home24/home24.py" "~/projects/Home24/articles.py" "~/projects/Home24/readme.txt" "/../storage/projects/neuronet/src/network.cpp" "~/.emacs" "~/projects/Home24/home24.py" "~/projects/Home24/articles.py" "~/projects/Home24/readme.txt" "~/projects/playback-cpp-coding-challenge-master/mixersource.h"))
 
 ;; Buffer section -- buffers listed in same order as in buffer list:
 (desktop-create-buffer 206
+  "/home/christer/projects/gocode/src/github.com/christerso/hello/hello.go"
+  "hello.go"
+  'go-mode
+  '(company-mode flycheck-mode yas-minor-mode auto-complete-mode helm-mode persistent-scratch-autosave-mode)
+  158
+  '(158 nil)
+  nil
+  nil
+  '((indent-tabs-mode . t) (buffer-file-coding-system . utf-8-unix) (overwrite-mode)))
+
+(desktop-create-buffer 206
+  "/usr/local/go/src/io/ioutil/ioutil.go"
+  "ioutil.go"
+  'go-mode
+  '(company-mode flycheck-mode yas-minor-mode auto-complete-mode helm-mode persistent-scratch-autosave-mode)
+  1561
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode . t) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  nil
+  "*compilation*"
+  'compilation-mode
+  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode)
+  1
+  '(1 nil)
+  t
+  '(:command ("go build -v && go test -v && go vet" compilation-mode nil nil) :dir "/home/christer/projects/gocode/src/github.com/christerso/hello/")
+  nil)
+
+(desktop-create-buffer 206
   "/home/christer/.emacs"
   ".emacs"
-  'lisp-mode
-  '(company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  3771
-  '(3770 nil)
+  'emacs-lisp-mode
+  '(company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode linum-mode)
+  7863
+  '(7776 nil)
   nil
   nil
-  '((buffer-file-coding-system . utf-8-unix)))
+  '((buffer-file-coding-system . utf-8-unix) (overwrite-mode)))
 
 (desktop-create-buffer 206
-  "/home/christer/projects/Home24/home24.py"
-  "home24.py"
-  'python-mode
-  '(eldoc-mode company-mode anaconda-mode anaconda-eldoc-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  1774
-  '(1720 nil)
-  nil
-  nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . utf-8-unix) (overwrite-mode)))
-
-(desktop-create-buffer 206
-  "/../storage/projects/neuronet/src/network.cpp"
-  "network.cpp"
-  'c++-mode
-  '(abbrev-mode company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode uncrustify-mode cmake-project-mode egg-minor-mode)
-  663
-  '(663 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/christer/projects/playback-cpp-coding-challenge-master/mixer.h"
-  "mixer.h"
-  'c-mode
-  '(abbrev-mode company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode uncrustify-mode cmake-project-mode egg-minor-mode)
-  1
+  "/usr/local/go/src/fmt/print.go"
+  "print.go"
+  'go-mode
+  '(company-mode flycheck-mode yas-minor-mode auto-complete-mode helm-mode persistent-scratch-autosave-mode)
+  7394
   '(nil nil)
   nil
   nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/christer/projects/playback-cpp-coding-challenge-master/mixersource.cpp"
-  "mixersource.cpp"
-  'c++-mode
-  '(abbrev-mode company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode uncrustify-mode cmake-project-mode egg-minor-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/christer/projects/playback-cpp-coding-challenge-master/fileReader.cpp"
-  "fileReader.cpp"
-  'c++-mode
-  '(abbrev-mode company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode uncrustify-mode cmake-project-mode egg-minor-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/christer/projects/playback-cpp-coding-challenge-master/fileReader.h"
-  "fileReader.h"
-  'c-mode
-  '(abbrev-mode company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode uncrustify-mode cmake-project-mode egg-minor-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/../storage/projects/neuronet/src/neuron.cpp"
-  "neuron.cpp"
-  'c++-mode
-  '(abbrev-mode company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode uncrustify-mode cmake-project-mode egg-minor-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/../storage/projects/neuronet/src/network.h"
-  "network.h"
-  'c-mode
-  '(abbrev-mode company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode uncrustify-mode cmake-project-mode egg-minor-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/christer/projects/playback-cpp-coding-challenge-master/player.cpp"
-  "player.cpp"
-  'c++-mode
-  '(abbrev-mode company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode uncrustify-mode cmake-project-mode egg-minor-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/christer/projects/neuronet/qt/src/mainwindow.cpp"
-  "mainwindow.cpp"
-  'c++-mode
-  '(abbrev-mode company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode uncrustify-mode egg-minor-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/christer/projects/neuronet/qt/inc/mainwindow.h"
-  "mainwindow.h"
-  'c-mode
-  '(abbrev-mode company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode uncrustify-mode egg-minor-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/christer/projects/playback-cpp-coding-challenge-master/fileSink.h"
-  "fileSink.h"
-  'c-mode
-  '(abbrev-mode company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode uncrustify-mode cmake-project-mode egg-minor-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/christer/projects/playback-cpp-coding-challenge-master/fileSink.cpp"
-  "fileSink.cpp"
-  'c++-mode
-  '(abbrev-mode company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode uncrustify-mode cmake-project-mode egg-minor-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/christer/projects/playback-cpp-coding-challenge-master/mixersource.h"
-  "mixersource.h"
-  'c-mode
-  '(abbrev-mode company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode uncrustify-mode cmake-project-mode egg-minor-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/christer/projects/playback-cpp-coding-challenge-master/networkReader.h"
-  "networkReader.h"
-  'c-mode
-  '(abbrev-mode company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode uncrustify-mode cmake-project-mode egg-minor-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/christer/projects/playback-cpp-coding-challenge-master/player.h"
-  "player.h"
-  'c-mode
-  '(abbrev-mode company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode uncrustify-mode cmake-project-mode egg-minor-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/christer/projects/playback-cpp-coding-challenge-master/mixer.cpp"
-  "mixer.cpp"
-  'c++-mode
-  '(abbrev-mode company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode uncrustify-mode cmake-project-mode egg-minor-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  "/home/christer/projects/Home24/articles.py"
-  "articles.py"
-  'python-mode
-  '(company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  596
-  '(nil nil)
-  nil
-  nil
-  '((tab-width . 8) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+  '((indent-tabs-mode . t) (buffer-file-coding-system . undecided-unix)))
 
 (desktop-create-buffer 206
   nil
-  "Home24"
+  "hello"
   'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  256
+  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode)
+  345
   '(nil nil)
   t
-  '("/home/christer/projects/Home24/")
+  '("/home/christer/projects/gocode/src/github.com/christerso/hello/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "christerso"
+  'dired-mode
+  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode)
+  268
+  '(nil nil)
+  t
+  '("/home/christer/projects/gocode/src/github.com/christerso/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "github.com"
+  'dired-mode
+  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode)
+  257
+  '(nil nil)
+  t
+  '("/home/christer/projects/gocode/src/github.com/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "src"
+  'dired-mode
+  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode)
+  246
+  '(nil nil)
+  t
+  '("/home/christer/projects/gocode/src/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "gocode"
+  'dired-mode
+  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode)
+  357
+  '(nil nil)
+  t
+  '("/home/christer/projects/gocode/")
   nil)
 
 (desktop-create-buffer 206
   nil
   "projects"
   'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  977
-  '(1036 nil)
+  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode)
+  974
+  '(1 nil)
   t
   '("/home/christer/projects/")
   nil)
 
 (desktop-create-buffer 206
   nil
+  "bin"
+  'dired-mode
+  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode)
+  200
+  '(nil nil)
+  t
+  '("/home/christer/projects/gocode/bin/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
   "christer"
   'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  4002
-  '(4071 nil)
+  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode)
+  4625
+  '(646 nil)
   t
   '("/home/christer/")
   nil)
 
 (desktop-create-buffer 206
-  "/home/christer/.offlineimaprc"
-  ".offlineimaprc"
-  'fundamental-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  507
-  '(255 nil)
+  "/home/christer/.bashrc"
+  ".bashrc"
+  'sh-mode
+  '(company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode)
+  4238
+  '(4289 nil)
   nil
   nil
   '((buffer-file-coding-system . undecided-unix) (overwrite-mode)))
 
 (desktop-create-buffer 206
   nil
-  ".emacs.d"
+  "hello"
   'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  892
-  '(962 nil)
-  t
-  '("/home/christer/.emacs.d/")
-  nil)
-
-(desktop-create-buffer 206
-  "/home/christer/projects/neuronet/CMakeLists.txt"
-  "CMakeLists.txt"
-  'text-mode
-  '(company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode cmake-project-mode egg-minor-mode)
-  454
-  '(207 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix) (overwrite-mode)))
-
-(desktop-create-buffer 206
-  "/usr/local/share/doc/mu/mu4e-about.org"
-  "mu4e-about.org"
-  'mu4e-org-mode
-  '(company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  1
+  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode)
+  270
   '(nil nil)
   t
-  nil
-  '((buffer-file-coding-system . undecided-unix) (truncate-lines . t)))
-
-(desktop-create-buffer 206
-  "/home/christer/.emacs.d/lisp/sourcepair.el"
-  "sourcepair.el"
-  'emacs-lisp-mode
-  '(company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  5226
-  '(5184 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . prefer-utf-8-unix) (overwrite-mode)))
-
-(desktop-create-buffer 206
-  nil
-  "neuronet"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  366
-  '(nil nil)
-  t
-  '("/home/christer/projects/neuronet/")
+  '("/home/christer/projects/go/src/github.com/christerso/hello/")
   nil)
 
 (desktop-create-buffer 206
   nil
-  "qt"
+  "christerso"
   'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  195
+  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode)
+  264
   '(nil nil)
   t
-  '("/home/christer/projects/neuronet/qt/")
+  '("/home/christer/projects/go/src/github.com/christerso/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "github.com"
+  'dired-mode
+  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode)
+  253
+  '(nil nil)
+  t
+  '("/home/christer/projects/go/src/github.com/")
   nil)
 
 (desktop-create-buffer 206
   nil
   "src"
   'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  197
+  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode)
+  242
   '(nil nil)
   t
-  '("/home/christer/projects/neuronet/qt/src/")
+  '("/home/christer/projects/go/src/")
   nil)
 
 (desktop-create-buffer 206
   nil
-  "src"
+  "go"
   'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  440
+  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode)
+  353
   '(nil nil)
   t
-  '("/../storage/projects/neuronet/src/")
+  '("/home/christer/projects/go/")
   nil)
 
 (desktop-create-buffer 206
   nil
-  "testcode"
+  "goeuro"
   'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  191
+  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode)
+  248
   '(nil nil)
   t
-  '("/../storage/projects/testcode/")
+  '("/home/christer/projects/goeuro/")
   nil)
 
 (desktop-create-buffer 206
   nil
-  "tomtom"
+  "docs"
   'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  189
-  '(nil nil)
+  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode)
+  459
+  '(459 nil)
   t
-  '("/../storage/projects/tomtom/")
+  '("/home/christer/projects/docs/")
   nil)
 
 (desktop-create-buffer 206
   nil
-  "serve"
+  "fmt"
   'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  186
-  '(nil nil)
-  t
-  '("/../storage/projects/serve/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  ".."
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  1388
-  '(nil nil)
-  t
-  '("/../")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  "/"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  164
-  '(299 nil)
-  t
-  '("/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  "home"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  163
-  '(nil nil)
-  t
-  '("/home/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  "inc"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  197
-  '(nil nil)
-  t
-  '("/home/christer/projects/neuronet/qt/inc/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  "src"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  196
-  '(nil nil)
-  t
-  '("/home/christer/projects/neuronet/src/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  "playback-cpp-coding-challenge-master"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  228
-  '(2140 nil)
-  t
-  '("/home/christer/projects/playback-cpp-coding-challenge-master/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  "mu"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  201
-  '(nil nil)
-  t
-  '("/home/christer/.emacs.d/lisp/mu/mu/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  "mu4e"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  201
-  '(18 nil)
-  t
-  '("/home/christer/.emacs.d/lisp/mu/mu4e/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  "lisp"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  246
-  '(574 nil)
-  t
-  '("/home/christer/.emacs.d/lisp/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  "Maildir"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  181
-  '(nil nil)
-  t
-  '("/home/christer/Maildir/")
-  nil)
-
-(desktop-create-buffer 206
-  "/usr/local/share/doc/mu/NEWS.org"
-  "NEWS.org"
-  'org-mode
-  '(company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  1
-  '(nil nil)
-  t
-  nil
-  '((buffer-file-coding-system . utf-8-unix) (truncate-lines . t)))
-
-(desktop-create-buffer 206
-  nil
-  "elpa"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  2133
-  '(556 nil)
-  t
-  '("/home/christer/.emacs.d/elpa/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  ".mutt"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  234
-  '(nil nil)
-  t
-  '("/home/christer/.mutt/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  "guile"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  199
-  '(nil nil)
-  t
-  '("/home/christer/.emacs.d/lisp/mu/guile/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  "mu"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  714
-  '(965 nil)
-  t
-  '("/home/christer/.emacs.d/lisp/mu/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  "googlemock"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
+  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode)
   239
   '(nil nil)
   t
-  '("/home/christer/projects/playback-cpp-coding-challenge-master/gtest/googlemock/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  "include"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  245
-  '(nil nil)
-  t
-  '("/home/christer/projects/playback-cpp-coding-challenge-master/gtest/googlemock/include/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  "gmock"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  254
-  '(nil nil)
-  t
-  '("/home/christer/projects/playback-cpp-coding-challenge-master/gtest/googlemock/include/gmock/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  "src"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  243
-  '(nil nil)
-  t
-  '("/home/christer/projects/playback-cpp-coding-challenge-master/gtest/googlemock/src/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  "gtest"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  476
-  '(nil nil)
-  t
-  '("/home/christer/projects/playback-cpp-coding-challenge-master/gtest/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  "blueprint"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  268
-  '(nil nil)
-  t
-  '("/../storage/projects/blueprint/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  "storage"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  489
-  '(nil nil)
-  t
-  '("/../storage/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  "src"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  263
-  '(254 nil)
-  t
-  '("/../storage/projects/neuronet/qt/src/")
-  nil)
-
-(desktop-create-buffer 206
-  "/home/christer/projects/playback-cpp-coding-challenge-master/main.cpp"
-  "main.cpp"
-  'c++-mode
-  '(abbrev-mode company-mode flycheck-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode uncrustify-mode cmake-project-mode egg-minor-mode)
-  1
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . undecided-unix)))
-
-(desktop-create-buffer 206
-  nil
-  "*info*"
-  'Info-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  1449986
-  '(nil nil)
-  t
-  '("/usr/share/info/emacs-24/emacs" "Face Customization" ((history ("/usr/share/info/emacs-24/emacs" "Easy Customization" 1434131))))
-  '((tab-width . 8) (buffer-file-coding-system . utf-8-unix) (case-fold-search . t)))
-
-(desktop-create-buffer 206
-  nil
-  "Home24"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  380
-  '(nil nil)
-  t
-  '("/../storage/projects/Home24/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  "projects"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  1397
-  '(791 nil)
-  t
-  '("/../storage/projects/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  "neuronet"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  189
-  '(745 nil)
-  t
-  '("/../storage/projects/neuronet/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  "qt"
-  'dired-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  192
-  '(304 nil)
-  t
-  '("/../storage/projects/neuronet/qt/")
-  nil)
-
-(desktop-create-buffer 206
-  nil
-  "*Compile-Log*"
-  'compilation-mode
-  '(company-mode yas-minor-mode helm-mode persistent-scratch-autosave-mode egg-minor-mode)
-  5700
-  '(1861 nil)
-  t
-  '(:command nil :dir nil)
+  '("/usr/local/go/src/fmt/")
   nil)
 
